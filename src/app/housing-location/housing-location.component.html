@@ -1,0 +1,14 @@
+<a class="card h-80 w-80 hover" [routerLink]="['/details', housingLocation.id]">
+  <figure>
+    <img
+      [src]="housingLocation.photo"
+      alt="{{ housingLocation.name }} Exterior Photo"
+    />
+  </figure>
+  <div class="card-body bg-secondary bg-opacity-5 rounded-b-2xl">
+    <span class="card-title">{{ housingLocation.name }}</span>
+    <p class="text-neutral-400">
+      {{ housingLocation.city }}, {{ housingLocation.state }}
+    </p>
+  </div>
+</a>

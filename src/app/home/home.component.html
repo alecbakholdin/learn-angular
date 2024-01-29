@@ -1,0 +1,23 @@
+<section>
+  <span class="relative">
+    <input
+      type="text"
+      name="cityFilter"
+      id="cityFilter"
+      placeholder="Filter by city"
+      class="pl-10 input input-bordered"
+      (keydown.code.enter)="filterLocations(filter.value)"
+      #filter
+    />
+  </span>
+  <button type="button" class="btn" (click)="filterLocations(filter.value)">
+    Search
+  </button>
+</section>
+<section class="flex gap-4 flex-wrap m-4">
+  <app-housing-location
+    *ngFor="let housingLocation of housingLocationList"
+    [housingLocation]="housingLocation"
+  >
+  </app-housing-location>
+</section>

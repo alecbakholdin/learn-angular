@@ -1,0 +1,72 @@
+<article class="w-fit mx-auto">
+  <section class="flex sm:flex-row flex-col mx-auto">
+    <img
+      [src]="housingLocation?.photo"
+      alt=""
+      class="max-w-screen-sm w-96 h-96 rounded-xl"
+    />
+    <div class="text-right w-96">
+      <p class="text-2xl font-bold">{{ housingLocation?.name }}</p>
+      <p>{{ housingLocation?.city }}, {{ housingLocation?.state }}</p>
+      <div class="text-left w-fit float-right">
+        <p class="mt-4 text-lg font-semibold text-primary">
+          About this location
+        </p>
+        <p>Units Available: {{ housingLocation?.availableUnits }}</p>
+        <p>Laundry? {{ housingLocation?.laundry ? "Yes" : "No" }}</p>
+        <p>Wifi? {{ housingLocation?.wifi ? "Yes" : "No" }}</p>
+      </div>
+    </div>
+  </section>
+  <section class="rounded-xl bg-neutral-100 p-4 mt-4">
+    <h2 class="text-xl font-semibold">Submit Application</h2>
+    <form
+      [formGroup]="applyForm"
+      (submit)="submitApplication()"
+      class="grid grid-cols-2 gap-2 [&>label>input]:w-full"
+    >
+      <label for="firstName" class="col-span-full sm:col-span-1">
+        <p>First Name</p>
+        <input
+          type="text"
+          name="firstName"
+          formControlName="firstName"
+          id="firstName"
+          class="input input-bordered w-full"
+          placeholder="First Name"
+          autocomplete="given-name"
+        />
+      </label>
+      <label for="lastName" class="col-span-full sm:col-span-1">
+        <p>Last Name</p>
+        <input
+          type="text"
+          name="lastName"
+          formControlName="lastName"
+          id="email"
+          class="input input-bordered"
+          placeholder="Last Name"
+          autocomplete="family-name"
+        />
+      </label>
+      <label for="email" class="col-span-full">
+        <p>Email</p>
+        <input
+          type="text"
+          name="email"
+          formControlName="email"
+          id="email"
+          class="input input-bordered"
+          placeholder="Email"
+          autocomplete="email"
+        />
+      </label>
+      <button
+        type="submit"
+        class="btn btn-secondary btn-md col-span-full place-self-center w-full"
+      >
+        Submit
+      </button>
+    </form>
+  </section>
+</article>
